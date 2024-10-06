@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Restoran Mewah Dunia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Restoran Mewah Dunia</h1>
+            <nav>
+                <a href="{{ url_for('home') }}">Beranda</a>
+                <a href="{{ url_for('menu') }}">Menu</a>
+                <a href="{{ url_for('about') }}">Tentang Kami</a>
+                <a href="{{ url_for('contact') }}">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Hubungi Kami</h2>
+        <p>Alamat: Jl. Mewah Nusantara No. 123, Jakarta Pusat</p>
+        <p>Telepon: (021) 1234-5678</p>
+        <p>Email: info@restoranmewahDunia.com</p>
+        <h3>Jam Operasional:</h3>
+        <p>Senin - Minggu: 11:00 - 23:00 WIB</p>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Restoran Mewah Dunia. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+</body>
+</html>

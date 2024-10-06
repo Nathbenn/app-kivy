@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Restoran Mewah Nusantara</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Restoran Mewah Dunia</h1>
+            <nav>
+                <a href="{{ url_for('home') }}">Beranda</a>
+                <a href="{{ url_for('menu') }}">Menu</a>
+                <a href="{{ url_for('about') }}">Tentang Kami</a>
+                <a href="{{ url_for('contact') }}">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Rasakan Kemewahan Kuliner Dunia</h2>
+                <p>Nikmati hidangan autentik dengan sentuhan modern</p>
+                <a href="#reservasi" class="cta-button">Reservasi Sekarang</a>
+                <button id="promoButton" class="cta-button">Dapatkan Promo</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <img src="{{ url_for('static', filename='hidangan.jpg') }}" alt="Hidangan Spesial">
+                <h3>Hidangan Spesial</h3>
+                <p>Menu pilihan dari koki terbaik kami</p>
+            </div>
+            <div class="feature">
+                <img src="{{ url_for('static', filename='mewah.jpg') }}" alt="Suasana Mewah">
+                <h3>Suasana Mewah</h3>
+                <p>Desain interior yang elegan dan nyaman</p>
+            </div>
+            <div class="feature">
+                <img src="{{ url_for('static', filename='pelayan.jpg') }}" alt="Pelayanan Prima">
+                <h3>Pelayanan Prima</h3>
+                <p>Staf kami siap memberikan pengalaman terbaik</p>
+            </div>
+        </section>
+
+        <div id="promoMessage" class="promo-message"></div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Restoran Mewah Dunia. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('promoButton').addEventListener('click', function() {
+            fetch('/get_promo')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('promoMessage').textContent = data.message;
+                    document.getElementById('promoMessage').style.display = 'block';
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
